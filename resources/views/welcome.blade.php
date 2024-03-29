@@ -15,40 +15,32 @@
         <div class="flex flex-row items-center gap-x-3">
             <img src="{{asset('assets/images/logo.png')}}" alt="" class="h-[60px]">
             <div class="flex flex-col gap-y-1">
-                <h3 class="text-base font-semibold leading-none md:block lg:block text-indigo-950">Sistem Informasi Keringanan UKT</h3>
+                <h3 class="text-base font-semibold leading-none md:block lg:block text-indigo-950">Sistem Informasi Penyesuaian UKT</h3>
                 <h4 class="text-sm font-semibold leading-none md:block lg:block text-indigo-950">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
             </div>
         </div>
         <div class="flex flex-row items-center justify-between gap-x-7">
             <ul class="flex-row lg:flex gap-x-7 md:hidden">
                 <li>
-                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Website</a>
+                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Beranda</a>
                 </li>
                 <li>
-                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Pendaftaran</a>
+                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Syarat & Ketentuan</a>
                 </li>
                 <li>
-                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Daftar Ulang</a>
-                </li>
-                <li>
-                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">FAQ</a>
-                </li>
-                <li>
-                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Kontak</a>
+                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Tanggal Penting</a>
                 </li>
             </ul>
-            <a href="#" class="py-2 text-sm font-semibold text-white bg-indigo-950 px-7 rounded-xl hover:bg-green-700">Sign In</a>
+            <a href="#" class="py-2 text-sm font-semibold text-white bg-indigo-950 px-7 rounded-xl hover:bg-green-700">Daftar</a>
             <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer lg:hidden"></ion-icon>
         </div>
     </nav>
     <section class="max-w-6xl py-5 mx-auto hero">
         <div class="flex flex-row items-center justify-between px-5">
-            <div class="flex flex-col gap-y-10">
+            <div class="flex flex-col w-1/2 gap-y-10">
                 <div class="flex flex-col gap-y-3">
                     <h1 class="text-indigo-950 font-['Clash_Display'] text-3xl leading-nomal">
-                        Menjadikan Universitas Islam Negeri<br>
-                        Sultan Syarif Kasim Riau<br>
-                        Gemilang dan Terbilang
+                       Penyesuaian UKT Universitas Islam Negeri Sultan Syarif Kasim Riau Tahun Akademik 2024/2025 Semester Ganjil
                     </h1>
                     <p class="text-sm leading-normal text-gray-500">
                         Surat Keputusan Rektor Tentang Pemberian Keringanan UKT<br>
@@ -59,69 +51,143 @@
                     <a href="#" class="py-2 text-sm font-semibold text-white rounded-full bg-violet-950 px-7 hover:bg-indigo-700">Surat Keputusan Rektor UIN SUSKA Riau</a>
                 </div>
             </div>
-            <div class="flex flex-row items-center">
-                <img src="{{asset('assets/images/rektor.jpeg')}}" class="h-[550px] rounded-2xl"/>
+            <div class="flex flex-row items-center justify-center w-1/2">
+                <img src="{{asset('assets/images/mhs-uin.jpg')}}" class="h-[550px] rounded-2xl"/>
             </div>
         </div>
+    </section>
+    <section class="flex flex-col max-w-6xl pt-10 mx-auto faq gap-y-5">
+        <h3 class="text-indigo-950 font-['Clash_Display'] text-5xl text-center">
+            Syarat & Ketentuan
+        </h3>
+        <p class="text-sm leading-normal text-indigo-950">Penyesuaian Uang Kuliah Tunggal (UKT) merupakan mekanisme yang disediakan oleh UIN Sultan Syarif Kasim Riau kepada Mahasiswa yang mengalami perubahan kondisi ekonomi dan kemampuan Keuangan. Untuk mengajukan perubahan besaran Uang Kuliah Tunggal (UKT), Prosedur Penyesuaian Uang Kuliah Tunggal (UKT) Tahun @php echo date("Y")
+
+        @endphp adalah :</p>
+        <ol class="pl-3 text-sm leading-normal list-decimal text-indigo-950">
+            <li>
+                Mahasiswa yang dapat Mengajukan Penyesuaian UKT Tahun @php echo date("Y")@endphp adalah Mahasiswa jenjang Diploma (D3) dan Jenjang Sarjana (S1) yang berstatus aktif pada Semester Genap Tahun Akademik @php echo date("Y")-1 @endphp/@php echo date("Y") @endphp dan tidak sedang menerima beasiswa.
+            </li>
+            <li>
+                Pengajuan Penyesuaian UKT Tahun 2024 dilakukan secara online melalui portal https://penyesuaian-ukt.uin-suska.ac.id dengan login menggunakan akun iRaise.
+            </li>
+            <li>
+                Mahasiswa mengupload file-file sebagai berikut :
+                <ul class="list-disc list-uutside ps-3">
+                    <li>
+                        Surat Permohonan Penyesuaian UKT dari orang tua/wali mahasiswa ditujukan kepada Dekan Fakultas yang bersangkutan [Format Terlampir].
+                    </li>
+                    <li>
+                        Scan Kartu Keluarga (KK) Asli dan KTP Orang Tua.
+                    </li>
+                    <li>
+                        Scan asli rekening listrik 2 (Dua) bulan terakhir bagi pelanggan PLN Pasca bayar. Adapun bagi pelanggan PLN Pra bayar (Pulsa), Scan rekening listrik diganti dengan Surat Pernyataan Pengeluaran Biaya Listrik Selama 2 (dua) bulan terakhir yang ditandatangani oleh Kepala Keluarga dan diketahui oleh Lurah setempat.
+                    </li>
+                    <li>
+                        Scan asli slip gaji orang tua/Surat Keterangan Penghasilan Kurang Mampu dari Lurah setempat.
+                    </li>
+                    <li>
+                        Scan asli Surat Kematian orang tua/wali yang berada dalam satu KK dengan mahasiswa/Surat Keterangan dari rumah sakit bagi orang tua/wali yang sakit permanen yang berada dalam satu KK dengan mahasiswa/Surat keterangan PHK dari perusahaan bagi orang tua/wali yang berada dalam satu KK dengan mahasiswa/Surat keterangan usaha orang tua/wali pailit dan berada dalam satu KK dengan mahasiswa dari Lurah setempat.
+                    </li>
+                    <li>
+                        Foto rumah yang terdiri dari ruang tamu, kamar tidur, ruang keluarga, dapur, depan rumah yang menampakan keseluruhan sisi depan
+                    </li>
+                    <li>
+                        Surat pernyataan tidak sedang menerima beasiswa dari pihak manapun [Format Terlampir].
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Penyesuaian UKT berlaku mulai Semester Ganjil Tahun Akademik 2024/2025.
+            </li>
+            <li>
+                Penyesuaian UKT hanya berlaku bagi mahasiswa yang berada pada UKT 4-7 dan jika disetujui akan diturunkan 1 tingkat.
+            </li>
+            <li>
+                Penyesuaian UKT tidak berlaku bagi Mahasiswa yang diterima melalui <strong>Jalur Tulis (CAT) Mandiri</strong> dan yang <strong>sedang menerima beasiswa dari pihak manapun</strong>.
+            </li>
+            <li>
+                Mahasiswa yang bisa mengajukan Penyesuaian UKT Minimal berada di Semester II (dua).
+            </li>
+        </ol>
     </section>
     <section class="max-w-6xl py-12 mx-auto pendaftaran">
         <div>
             <h3 class="text-indigo-950 font-['Clash_Display'] text-5xl text-center">
-                Pendaftaran
+                Tanggal Penting
             </h3>
             <div class="flex flex-row items-center py-12 gap-x-24">
                 <div class="flex flex-row items-center">
-                    <img src="../Mahad/images/mahad.png" class="h-[400px] rounded-xl"/>
+                    <img src="{{asset('assets/images/verification-img.png')}}" class="h-[400px] w-[600px] rounded-xl"/>
                 </div>
                 <div class="flex flex-col gap-y-10">
-                    <div class="flex flex-col gap-y-3">
-                        <h1 class="text-indigo-950 font-['Clash_Display'] text-3xl leading-none">
-                            Jadilah Bagian Dari Kami,<br>Lakukan Pendaftaran Sekarang Juga
-                        </h1>
-                        <p class="text-sm leading-normal text-gray-500">
-                            Silahkan Pilih Jenis Pendaftaran Mahasantri<br>
-                            Universitas Islam Negeri Sultan Syarif Kasim Riau
-                        </p>
-                    </div>
                     <div class="flex flex-col gap-y-5">
                         <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
-                            <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.6925 42.1667H29.1925C38.7758 42.1667 42.6092 38.3334 42.6092 28.75V17.25C42.6092 7.66671 38.7758 3.83337 29.1925 3.83337H17.6925C8.10918 3.83337 4.27585 7.66671 4.27585 17.25V28.75C4.27585 38.3334 8.10918 42.1667 17.6925 42.1667Z" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.27585 24.3417L15.7758 24.3034C17.2133 24.3034 18.8233 25.3959 19.36 26.7375L21.545 32.2575C22.0433 33.5034 22.8292 33.5034 23.3275 32.2575L27.7167 21.1217C28.1383 20.0484 28.9242 20.01 29.4608 21.0259L31.4542 24.8017C32.0483 25.9325 33.5817 26.8525 34.8467 26.8525H42.6284" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <div class="flex flex-col">
                                 <h3 class="text-xl font-bold">
-                                    Pendaftaran Mahasantri Baru
+                                    18 April 2024
                                 </h3>
                                 <p class="text-sm leading-none text-gray-500">
-                                    Untuk Menjadi Mahasantri Baru Silahkan Klik Disini
+                                    Pengumuman Pembukaan Pendaftaran
                                 </p>
                             </div>
                         </div>
                         <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
-                            <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18.9 38.3333H28.1C35.7667 38.3333 38.8334 35.2666 38.8334 27.6V18.4C38.8334 10.7333 35.7667 7.66663 28.1 7.66663H18.9C11.2334 7.66663 8.16669 10.7333 8.16669 18.4V27.6C8.16669 35.2666 11.2334 38.3333 18.9 38.3333Z" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M20.625 32.5833H26.375C31.1667 32.5833 33.0834 30.6666 33.0834 25.875V20.125C33.0834 15.3333 31.1667 13.4166 26.375 13.4166H20.625C15.8334 13.4166 13.9167 15.3333 13.9167 20.125V25.875C13.9167 30.6666 15.8334 32.5833 20.625 32.5833Z" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15.8525 7.66671V3.83337" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M23.5 7.66671V3.83337" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M31.1667 7.66671V3.83337" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M38.8333 15.3334H42.6666" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M38.8333 23H42.6666" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M38.8333 30.6666H42.6666" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M31.1667 38.3334V42.1667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M23.5192 38.3334V42.1667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15.8525 38.3334V42.1667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.33334 15.3334H8.16668" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.33334 23H8.16668" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.33334 30.6666H8.16668" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M23.5 18.5917L21.6983 21.735C21.2958 22.425 21.6216 23 22.4266 23H24.5733C25.3783 23 25.7041 23.575 25.3016 24.265L23.5 27.4083" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <div class="flex flex-col">
                                 <h3 class="text-xl font-bold">
-                                    Pendaftaran Musrif/Musrifah
+                                    23 - 27 April 2024
                                 </h3>
                                 <p class="text-sm leading-none text-gray-500">
-                                    Untuk Menjadi Musrif/Musrifah Silahkan Klik Disini
+                                    Pengajuan Dokumen Secara Online
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    23 - 30 April 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Verifikasi Dokumen Oleh Fakultas
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    07 Mei 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Pengumuman
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    07 - 10 Mei 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Masa Sanggah
                                 </p>
                             </div>
                         </div>
@@ -130,239 +196,26 @@
             </div>
         </div>
     </section>
-    <section class="flex flex-col max-w-6xl mx-auto faq gap-y-5">
-        <h3 class="text-indigo-950 font-['Clash_Display'] text-5xl text-center">
-            Daftar Ulang
-        </h3>
-        <p class="text-sm leading-normal text-center text-indigo-950">Daftar Ulang Diperlukan Untuk Membantu Administrator Sistem Informasi Mahad Al-Jami'ah Dalam Melakukan Proses Her-Registrasi Mahasantri Lama dan Proses Untuk Melakukan Pengolahan Billing Pembayaran, Untuk Melakukan Daftar Ulang Mahasantri Lama Silahkan Klik Tombol <span class="text-sm font-bold text-violet-700">Sign In</span> Pada Pojok Kanan Atas</p>
-    </section>
-    <section class="max-w-6xl mx-auto mt-20 faq">
-        <h3 class="text-indigo-950 font-['Clash_Display'] text-5xl text-center">
-            FAQ
-        </h3>
-        <h3 class="py-5 text-2xl font-semibold text-center">Frequently Asked Questions</h3>
-        <div class="grid grid-cols-2 py-8 gap-x-8">
-            <div class="flex flex-col gap-y-8">
-                <div class="flex flex-row p-5 bg-white rounded-2xl gap-x-6">
-                    <div class="flex flex-col gap-y-4">
-                        <h3 class="text-base font-semibold text-indigo-950">
-                            Bagaimana Mendaftar Menjadi Mahasantri?
-                        </h3>
-                        <p class="text-sm leading-normal text-gray-500">
-                            Aliquam venenatis ex ligula, ut euismod nunc rutrum in. Mauris quis fringilla sem. Pellentesque eu justo id enim vehicula sodales ut sit amet magna. Nam vulputate nibh et massa imperdiet porttitor. Mauris fringilla lobortis sem, sed lobortis justo tincidunt ut. Mauris accumsan dolor orci, varius viverra odio fermentum non. Vivamus cursus tortor non viverra molestie.
-                        </p>
-                        <a href="#" class="text-sm font-semibold text-violet-700">Selengkapnya</a>
-                    </div>
-                    <a href="">
-                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="30.5" y="30" width="30" height="30" rx="15" transform="rotate(-180 30.5 30)" fill="#080C2E"/>
-                            <path d="M9.56 17.2876L14.45 12.3976C15.0275 11.8201 15.9725 11.8201 16.55 12.3976L21.44 17.2876" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="flex flex-row justify-between p-5 bg-white rounded-2xl gap-x-6">
-                    <div class="flex flex-col gap-y-4">
-                        <h3 class="text-base font-semibold text-indigo-950">
-                            Apakah Pembayaran Mahad Al-Jami'ah Boleh Dicicil?
-                        </h3>
-                    </div>
-                    <a href="">
-                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" width="30" height="30" rx="15" fill="white"/>
-                            <path d="M21.44 12.7124L16.55 17.6024C15.9725 18.1799 15.0275 18.1799 14.45 17.6024L9.56 12.7124" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="flex flex-col gap-y-8">
-                <div class="flex flex-row p-5 bg-white rounded-2xl gap-x-6">
-                    <div class="flex flex-col gap-y-4">
-                        <h3 class="text-base font-semibold text-indigo-950">
-                            Bagaimana Menjadi Musrif/Musrifah?
-                        </h3>
-                        <p class="text-sm leading-normal text-gray-500">
-                            Aliquam venenatis ex ligula, ut euismod nunc rutrum in. Mauris quis fringilla sem. Pellentesque eu justo id enim vehicula sodales ut sit amet magna. Nam vulputate nibh et massa imperdiet porttitor. Mauris fringilla lobortis sem, sed lobortis justo tincidunt ut. Mauris accumsan dolor orci, varius viverra odio fermentum non. Vivamus cursus tortor non viverra molestie.
-                        </p>
-                        <a href="#" class="text-sm font-semibold text-violet-700">Learn More</a>
-                    </div>
-                    <a href="">
-                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="30.5" y="30" width="30" height="30" rx="15" transform="rotate(-180 30.5 30)" fill="#080C2E"/>
-                            <path d="M9.56 17.2876L14.45 12.3976C15.0275 11.8201 15.9725 11.8201 16.55 12.3976L21.44 17.2876" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="flex flex-row bg-[#080C2E] rounded-2xl p-5 gap-x-6 justify-between">
-                    <div class="flex flex-row items-center gap-x-2">
-                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.5 12.2V13.9C20.5 17.05 18.7 18.4 16 18.4H7C4.3 18.4 2.5 17.05 2.5 13.9V8.5C2.5 5.35 4.3 4 7 4H9.7C9.57 4.38 9.5 4.8 9.5 5.25V9.15002C9.5 10.12 9.82 10.94 10.39 11.51C10.96 12.08 11.78 12.4 12.75 12.4V13.79C12.75 14.3 13.33 14.61 13.76 14.33L16.65 12.4H19.25C19.7 12.4 20.12 12.33 20.5 12.2Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M22.5 5.25V9.15002C22.5 10.64 21.74 11.76 20.5 12.2C20.12 12.33 19.7 12.4 19.25 12.4H16.65L13.76 14.33C13.33 14.61 12.75 14.3 12.75 13.79V12.4C11.78 12.4 10.96 12.08 10.39 11.51C9.82 10.94 9.5 10.12 9.5 9.15002V5.25C9.5 4.8 9.57 4.38 9.7 4C10.14 2.76 11.26 2 12.75 2H19.25C21.2 2 22.5 3.3 22.5 5.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7.90002 22H15.1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11.5 18.3999V21.9999" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M18.9955 7.25H19.0045" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16.1957 7.25H16.2047" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M13.3954 7.25H13.4044" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <div class="flex flex-col gap-y-4">
-                            <h3 class="text-base font-semibold text-white">
-                                Kirim Email Untuk Pertanyaan Lainnya
-                            </h3>
-                        </div>
-                    </div>
-                    <a href="">
-                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
-                            <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="relative z-0 max-w-6xl p-12 mx-auto mt-20 bg-green-700 closing rounded-2xl">
-        <div class="grid items-center grid-cols-2 gap-x-10">
-            <div class="flex flex-col gap-y-10">
-                <div class="flex flex-row px-3 py-2 bg-white rounded-full w-fit small-badge gap-x-2">
-                    <p class="text-base font-semibold text-indigo-950">
-                        Apalagi Yang Ditunggu Kawans
-                    </p>
-                </div>
-                <div class="flex flex-col gap-y-3">
-                    <h1 class="text-white font-['Clash_Display'] text-5xl leading-none">
-                        Start Growing Today
-                    </h1>
-                    <p class="text-sm leading-normal text-white">
-                        Yuks..Gabung Bersama Kami Di<br>
-                        <span class="text-3xl text-white text-bold font-['Clash_Display']">Mahad Al-Jami'ah</span><br>Universitas Islam Negeri Sultan Syarif Kasim Riau
-                    </p>
-                </div>
-                <div class="flex flex-row gap-x-5">
-                    <a href="#" class="text-sm bg-[#FFD15A] text-indigo-950 py-2 px-7 rounded-full font-semibold">Website Resmi Mahad Al-Jami'ah</a>
-                </div>
-            </div>
-            <div class="grid grid-cols-3 gap-x-5 gap-y-5">
-                <div class="group closing-card">
-                    <img src="images/mahad_1.jpeg" class="flex flex-col items-center justify-center px-1 py-1 transition-all duration-500 ease-in-out hover:bg-yellow-500 rounded-2xl gap-y-5">
-                </div>
-                <div class="group closing-card">
-                    <img src="images/mahad_2.jpeg" class="flex flex-col items-center justify-center px-1 py-1 transition-all duration-500 ease-in-out hover:bg-yellow-500 rounded-2xl gap-y-5">
-                </div>
-                <div class="group closing-card">
-                    <img src="images/mahad_3.jpeg" class="flex flex-col items-center justify-center px-1 py-1 transition-all duration-500 ease-in-out hover:bg-yellow-500 rounded-2xl gap-y-5">
-                </div>
-                <div class="group closing-card">
-                    <img src="images/mahad_8.jpg" class="flex flex-col items-center justify-center px-1 py-1 transition-all duration-500 ease-in-out hover:bg-yellow-500 rounded-2xl gap-y-5">
-                </div>
-                <div class="group closing-card">
-                    <img src="images/mahad_5.jpeg" class="flex flex-col items-center justify-center px-1 py-1 transition-all duration-500 ease-in-out hover:bg-yellow-500 rounded-2xl gap-y-5">
-                </div>
-                <div class="group closing-card">
-                    <img src="images/mahad_6.jpg" class="flex flex-col items-center justify-center px-1 py-1 transition-all duration-500 ease-in-out hover:bg-yellow-500 rounded-2xl gap-y-5">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="footer w-screen -mt-[230px] bg-[#080C2E] -z-[999]">
-        <div class="max-w-6xl mx-auto py-6 grid grid-cols-5 pt-[330px]">
+    <section class="footer w-screen bg-[#080C2E]">
+        <div class="grid max-w-6xl grid-cols-5 py-6 pt-20 mx-auto">
             <div class="flex flex-col col-span-2 company-logo gap-y-7">
                 <div class="flex flex-row items-center gap-x-3">
-                    <img src="images/logo.png" alt="" class="h-[60px]">
+                    <img src="{{asset('assets/images/logo.png')}}" alt="" class="h-[60px]">
                     <div class="flex flex-col gap-y-1">
-                        <h3 class="text-2xl leading-none text-white">Mahad Al-Jami'ah</h3>
+                        <h3 class="text-2xl leading-none text-white">Bagian Keuangan Rektorat</h3>
                         <h4 class="text-sm leading-none text-white">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
                     </div>
                 </div>
-                <p class="text-sm leading-normal text-gray-500" break>
-                    Menjadikan Universitas Islam Negeri Sultan Syarif Kasim Riau Gemilang dan Terbilang
+                <p class="text-sm leading-normal text-gray-500 break-all">
+                    Jl. H.R. Soebrantas KM. 15 No. 155<br>
+                    Kec. Tuah Madani - Pekanbaru - Riau<br>
+                    Kode POS 28298 PO Box. 1004<br>
+
                 </p>
-                <div class="flex flex-row items-center gap-x-3">
-                    <div class="bg-white rounded-full flex items-center p-[7px]">
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="#640EF1" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9" stroke="#640EF1" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="bg-white rounded-full flex items-center p-[7px]">
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 3H9C7.05 8.84 7.05 15.16 9 21H8" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3C16.95 8.84 16.95 15.16 15 21" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 9.0001C8.84 7.0501 15.16 7.0501 21 9.0001" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="bg-white rounded-full flex items-center p-[7px]">
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z" stroke="#640EF1" stroke-width="2" stroke-miterlimit="10"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="bg-white rounded-full flex items-center p-[7px]">
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15Z" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M2.52 7.11011H21.48" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8.52 2.11011V6.97011" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15.48 2.11011V6.52011" stroke="#640EF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M9.75 14.4501V13.2501C9.75 11.7101 10.84 11.0801 12.17 11.8501L13.21 12.4501L14.25 13.0501C15.58 13.8201 15.58 15.0801 14.25 15.8501L13.21 16.4501L12.17 17.0501C10.84 17.8201 9.75 17.1901 9.75 15.6501V14.4501V14.4501Z" stroke="#640EF1" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col products gap-y-7">
-                <h3 class="text-lg font-bold text-white">
-                    Aplikasi
-                </h3>
-                <ul class="flex flex-col gap-y-4">
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Sisfo Mahad</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Pendaftaran Mahasantri</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Mobile Mahasantri</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex flex-col resources gap-y-7">
-                <h3 class="text-lg font-bold text-white">
-                    Layanan
-                </h3>
-                <ul class="flex flex-col gap-y-4">
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Layanan Kesehatan</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Layanan Wifi</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Sarana Olahraga</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex flex-col company gap-y-7">
-                <h3 class="text-lg font-bold text-white">
-                    Unduhan
-                </h3>
-                <ul class="flex flex-col gap-y-4">
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Al-Qur'an</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm text-gray-500 hover:text-violet-700">Sofware Islami</a>
-                    </li>
-                </ul>
             </div>
         </div>
         <div class="max-w-6xl mx-auto text-center text-[#8D90A8] text-sm pt-6 pb-10">
-            All Rights Reserved • Copyright by Mahad Aljami'ah Universitas Islam Negeri Sultan Syarif Kasim Riau
+            All Rights Reserved • Copyright by Bagian Keuangan Rektorat Universitas Islam Negeri Sultan Syarif Kasim Riau
         </div>
     </section>
 </body>
