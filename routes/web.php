@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\PenggunaIndex;
+use App\Livewire\User\UserIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +24,11 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/pengguna', UserIndex::class)
+    ->middleware(['auth'])
+    ->name('user.index');
+
+
 
 require __DIR__.'/auth.php';
