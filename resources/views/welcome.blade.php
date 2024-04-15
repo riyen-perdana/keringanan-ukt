@@ -1,4 +1,227 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Keringanan UKT - Universitas Islam Negeri Sultan Syarif Kasim Riau</title>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="bg-[#F1F4F5] font-['Poppins']">
+    <nav class="flex flex-row items-center justify-between max-w-6xl px-5 mx-auto mt-5 mb-20">
+        <div class="flex flex-row items-center gap-x-3">
+            <img src="{{asset('assets/images/logo.png')}}" alt="" class="h-[60px]">
+            <div class="flex flex-col gap-y-1">
+                <h3 class="text-base font-semibold leading-none md:block lg:block text-indigo-950">Sistem Informasi Penyesuaian UKT</h3>
+                <h4 class="text-sm font-semibold leading-none md:block lg:block text-indigo-950">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
+            </div>
+        </div>
+        <div class="flex flex-row items-center justify-between gap-x-7">
+            <ul class="flex-row lg:flex gap-x-7 md:hidden">
+                <li>
+                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Beranda</a>
+                </li>
+                <li>
+                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Syarat & Ketentuan</a>
+                </li>
+                <li>
+                    <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Tanggal Penting</a>
+                </li>
+            </ul>
+            <a href="#" class="py-2 text-sm font-semibold text-white bg-indigo-950 px-7 rounded-xl hover:bg-green-700">Daftar</a>
+            <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer lg:hidden"></ion-icon>
+        </div>
+    </nav>
+    <section class="max-w-6xl py-5 mx-auto hero">
+        <div class="flex flex-row items-center justify-between px-5">
+            <div class="flex flex-col w-1/2 gap-y-10">
+                <div class="flex flex-col gap-y-3">
+                    <h1 class="text-indigo-950 font-['Clash_Display'] text-3xl leading-nomal">
+                       Penyesuaian UKT Universitas Islam Negeri Sultan Syarif Kasim Riau Tahun Akademik 2024/2025 Semester Ganjil
+                    </h1>
+                    <p class="text-sm leading-normal text-gray-500">
+                        Surat Keputusan Rektor Tentang Pemberian Keringanan UKT<br>
+                        TA. 2024/2025, Silahkan klik link di bawah
+                    </p>
+                </div>
+                <div class="flex flex-row gap-x-5">
+                    <a href="#" class="py-2 text-sm font-semibold text-white rounded-full bg-violet-950 px-7 hover:bg-indigo-700">Surat Keputusan Rektor UIN SUSKA Riau</a>
+                </div>
+            </div>
+            <div class="flex flex-row items-center justify-center w-1/2">
+                <img src="{{asset('assets/images/mhs-uin.jpg')}}" class="h-[550px] rounded-2xl"/>
+            </div>
+        </div>
+    </section>
+    <section class="flex flex-col max-w-6xl pt-10 mx-auto faq gap-y-5">
+        <h3 class="text-indigo-950 font-['Clash_Display'] text-5xl text-center">
+            Syarat & Ketentuan
+        </h3>
+        <p class="text-sm leading-normal text-indigo-950">Penyesuaian Uang Kuliah Tunggal (UKT) merupakan mekanisme yang disediakan oleh UIN Sultan Syarif Kasim Riau kepada Mahasiswa yang mengalami perubahan kondisi ekonomi dan kemampuan Keuangan. Untuk mengajukan perubahan besaran Uang Kuliah Tunggal (UKT), Prosedur Penyesuaian Uang Kuliah Tunggal (UKT) Tahun @php echo date("Y")
+
+        @endphp adalah :</p>
+        <ol class="pl-3 text-sm leading-normal list-decimal text-indigo-950">
+            <li>
+                Mahasiswa yang dapat Mengajukan Penyesuaian UKT Tahun @php echo date("Y")@endphp adalah Mahasiswa jenjang Diploma (D3) dan Jenjang Sarjana (S1) yang berstatus aktif pada Semester Genap Tahun Akademik @php echo date("Y")-1 @endphp/@php echo date("Y") @endphp dan tidak sedang menerima beasiswa.
+            </li>
+            <li>
+                Pengajuan Penyesuaian UKT Tahun 2024 dilakukan secara online melalui portal https://penyesuaian-ukt.uin-suska.ac.id dengan login menggunakan akun iRaise.
+            </li>
+            <li>
+                Mahasiswa mengupload file-file sebagai berikut :
+                <ul class="list-disc list-uutside ps-3">
+                    <li>
+                        Surat Permohonan Penyesuaian UKT dari orang tua/wali mahasiswa ditujukan kepada Dekan Fakultas yang bersangkutan [Format Terlampir].
+                    </li>
+                    <li>
+                        Scan Kartu Keluarga (KK) Asli dan KTP Orang Tua.
+                    </li>
+                    <li>
+                        Scan asli rekening listrik 2 (Dua) bulan terakhir bagi pelanggan PLN Pasca bayar. Adapun bagi pelanggan PLN Pra bayar (Pulsa), Scan rekening listrik diganti dengan Surat Pernyataan Pengeluaran Biaya Listrik Selama 2 (dua) bulan terakhir yang ditandatangani oleh Kepala Keluarga dan diketahui oleh Lurah setempat.
+                    </li>
+                    <li>
+                        Scan asli slip gaji orang tua/Surat Keterangan Penghasilan Kurang Mampu dari Lurah setempat.
+                    </li>
+                    <li>
+                        Scan asli Surat Kematian orang tua/wali yang berada dalam satu KK dengan mahasiswa/Surat Keterangan dari rumah sakit bagi orang tua/wali yang sakit permanen yang berada dalam satu KK dengan mahasiswa/Surat keterangan PHK dari perusahaan bagi orang tua/wali yang berada dalam satu KK dengan mahasiswa/Surat keterangan usaha orang tua/wali pailit dan berada dalam satu KK dengan mahasiswa dari Lurah setempat.
+                    </li>
+                    <li>
+                        Foto rumah yang terdiri dari ruang tamu, kamar tidur, ruang keluarga, dapur, depan rumah yang menampakan keseluruhan sisi depan
+                    </li>
+                    <li>
+                        Surat pernyataan tidak sedang menerima beasiswa dari pihak manapun [Format Terlampir].
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Penyesuaian UKT berlaku mulai Semester Ganjil Tahun Akademik 2024/2025.
+            </li>
+            <li>
+                Penyesuaian UKT hanya berlaku bagi mahasiswa yang berada pada UKT 4-7 dan jika disetujui akan diturunkan 1 tingkat.
+            </li>
+            <li>
+                Penyesuaian UKT tidak berlaku bagi Mahasiswa yang diterima melalui <strong>Jalur Tulis (CAT) Mandiri</strong> dan yang <strong>sedang menerima beasiswa dari pihak manapun</strong>.
+            </li>
+            <li>
+                Mahasiswa yang bisa mengajukan Penyesuaian UKT Minimal berada di Semester II (dua).
+            </li>
+        </ol>
+    </section>
+    <section class="max-w-6xl py-12 mx-auto pendaftaran">
+        <div>
+            <h3 class="text-indigo-950 font-['Clash_Display'] text-5xl text-center">
+                Tanggal Penting
+            </h3>
+            <div class="flex flex-row items-center py-12 gap-x-24">
+                <div class="flex flex-row items-center">
+                    <img src="{{asset('assets/images/verification-img.png')}}" class="h-[400px] w-[600px] rounded-xl"/>
+                </div>
+                <div class="flex flex-col gap-y-10">
+                    <div class="flex flex-col gap-y-5">
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    18 April 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Pengumuman Pembukaan Pendaftaran
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    23 - 27 April 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Pengajuan Dokumen Secara Online
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    23 - 30 April 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Verifikasi Dokumen Oleh Fakultas
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    07 Mei 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Pengumuman
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center p-5 bg-white rounded-2xl gap-x-4">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="30" width="30" height="30" rx="15" transform="rotate(-90 0.5 30)" fill="white"/>
+                                <path d="M13.2125 9.05994L18.1025 13.9499C18.68 14.5274 18.68 15.4724 18.1025 16.0499L13.2125 20.9399" stroke="#080C2E" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold">
+                                    07 - 10 Mei 2024
+                                </h3>
+                                <p class="text-sm leading-none text-gray-500">
+                                    Masa Sanggah
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer w-screen bg-[#080C2E]">
+        <div class="grid max-w-6xl grid-cols-5 py-6 pt-20 mx-auto">
+            <div class="flex flex-col col-span-2 company-logo gap-y-7">
+                <div class="flex flex-row items-center gap-x-3">
+                    <img src="{{asset('assets/images/logo.png')}}" alt="" class="h-[60px]">
+                    <div class="flex flex-col gap-y-1">
+                        <h3 class="text-2xl leading-none text-white">Bagian Keuangan Rektorat</h3>
+                        <h4 class="text-sm leading-none text-white">Universitas Islam Negeri Sultan Syarif Kasim Riau</h4>
+                    </div>
+                </div>
+                <p class="text-sm leading-normal text-gray-500 break-all">
+                    Jl. H.R. Soebrantas KM. 15 No. 155<br>
+                    Kec. Tuah Madani - Pekanbaru - Riau<br>
+                    Kode POS 28298 PO Box. 1004<br>
+
+                </p>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto text-center text-[#8D90A8] text-sm pt-6 pb-10">
+            All Rights Reserved • Copyright by Bagian Keuangan Rektorat Universitas Islam Negeri Sultan Syarif Kasim Riau
+        </div>
+    </section>
+</body>
+</html>
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -118,4 +341,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}
