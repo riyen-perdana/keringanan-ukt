@@ -8,10 +8,10 @@
         <title>Sistem Informasi Penyesuaian UKT - Universitas Islam Negeri Sultan Syarif Kasim Riau</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
         <!-- Scripts -->
+        @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
@@ -32,5 +32,8 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <x-sweet-alert />
+        @livewireScripts
     </body>
 </html>
