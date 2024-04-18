@@ -19,8 +19,11 @@
                             </svg>
                             {{ __('Tambah') }}
                         </x-primary-button>
-                        @livewire('user.user-modal')
                     </section>
+                    <section class="flex flex-row user-table">
+                        @livewire('user.user-table')
+                    </section>
+                        @livewire('user.user-modal')
                 </div>
             </div>
         </div>
