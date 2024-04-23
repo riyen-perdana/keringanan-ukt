@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On;
 use Illuminate\Validation\Rule;
 
-use function PHPUnit\Framework\isNull;
-
 class UserModal extends Component
 {
 
@@ -72,15 +70,79 @@ class UserModal extends Component
                     'nip'       => $this->nip,
                     'name'      => $this->name,
                     'email'     => $this->email,
-                    'password'  => bcrypt($this->password),
+                    'password'  => $this->password,
+                    'password_confirmation' => $this->password_confirmation,
                     'is_aktif'  => $this->isAktif,
                     'akses'     => $this->akses
                 ],
                 [
-                    'nip'       => 'required|numeric|unique:users,nip,'.$this->user.',id',
+                    'nip'       => 'required|numeric|unique:users,nip,' . $this->user->id,
                     'name'      => 'required',
-                    'password'  => 'nullable|confirmed|min:8',
-                    'email'     => 'required|email|unique:users,email,'.$this->user.',id',
+                    'password'  => 'required|min:8|confirmed',
+                    'email'     => 'required|email|unique:users,email,' . $this->user->id,
+                    'is_aktif'  => 'required',
+                    'akses'     => 'required'
+                ],
+                [
+                    'nip.required'          => 'Kolom NIP PNS/PPPK/NON ASN Wajib Diisi',
+                    'nip.numeric'           => 'Kolom NIP PNS/PPPK/NON ASN Harus Angka',
+                    'nip.unique'            => 'Kolom NIP PNS/PPPK/NON ASN Sudah Ada',
+                    'name.required'         => 'Kolom Nama Pengguna Wajib Diisi',
+                    'password.required'     => 'Kolom Kata Kunci Wajib Diisi',
+                    'password.confirmed'    => 'Kolom Kata Kunci dan Ulangi Kata Kunci Tidak Sama',
+                    'password.min'          => 'Kata Kunci Minimal 8 Karakter',
+                    'email.required'        => 'Kolom Email Wajib Diisi',
+                    'email.email'           => 'Kolom Email Harus Menggunakan Format Email',
+                    'email.unique'          => 'Kolom Email Sudah Ada, Isikan Yang Lain',
+                    'is_aktif,required'     => 'Kolom Status Aktif Wajib Dipilih',
+                    'akses.required'        => 'Kolom Hak Akses Wajib Dipilih'
+                ]
+            )->validate();
+
+            if ($validated) {
+                DB::beginTransaction();
+
+                try {
+
+                    $pengguna = User::findOrFail($this->user->id);
+                    $pengguna->update([
+                        'nip'       => $this->nip,
+                        'name'      => $this->name,
+                        'password'  => bcrypt($this->password),
+                        'email'     => $this->email,
+                        'is_aktif'  => $this->isAktif,
+                        'akses'     => $this->akses
+                    ]);
+
+                    DB::commit();
+
+                    $this->dispatch('sweet-alert', icon: 'success', title: 'Data Pengguna Berhasil Diupdate');
+                    $this->dispatch('renderTable')->to(UserTable::class);
+                    $this->resetForm();
+
+                } catch (\Throwable $th) {
+                    $this->dispatch('sweet-alert', icon: 'danger', title: 'Data Pengguna Gagal Diupdate');
+                    $this->resetForm();
+                }
+            }
+        } else {
+            //Tambah Data
+            $validated = Validator::make(
+                //Data to Validate
+                [
+                    'nip'       => $this->nip,
+                    'name'      => $this->name,
+                    'email'     => $this->email,
+                    'password'  => $this->password,
+                    'password_confirmation' => $this->password_confirmation,
+                    'is_aktif'  => $this->isAktif,
+                    'akses'     => $this->akses
+                ],
+                [
+                    'nip'       => 'required|numeric|unique:users,nip',
+                    'name'      => 'required',
+                    'password'  => 'required|min:8|confirmed',
+                    'email'     => 'required|email|unique:users,email',
                     'is_aktif'  => 'required',
                     'akses'     => 'required'
                 ],
@@ -92,31 +154,36 @@ class UserModal extends Component
                     'password.confirmed'    => 'Kolom Kata Kunci dan Ulangi Kata Kunci Tidak Sama',
                     'password.min'          => 'Kata Kunci Minimal 8 Karakter',
                     'email.required'        => 'Kolom Email Wajib Diisi',
-                    'email.email'           => ''
+                    'email.email'           => 'Kolom Email Harus Menggunakan Format Email',
+                    'email.unique'          => 'Kolom Email Sudah Ada, Isikan Yang Lain',
+                    'is_aktif,required'     => 'Kolom Status Aktif Wajib Dipilih',
+                    'akses.required'        => 'Kolom Hak Akses Wajib Dipilih'
                 ]
-            );
-        } else {
-            //Tambah Data
-            $this->validate();
-            DB::beginTransaction();
-            try {
-                User::create([
-                    'nip'       => $this->nip,
-                    'name'      => $this->name,
-                    'email'     => $this->email,
-                    'password'  => bcrypt($this->password),
-                    'is_aktif'  => $this->isAktif,
-                    'akses'     => $this->akses
-                ]);
+            )->validate();
 
-                DB::commit();
+            if($validated)
+            {
+                DB::beginTransaction();
+                try {
 
-                $this->dispatch('sweet-alert', icon: 'success', title: 'Data Pengguna Berhasil Ditambah');
-                $this->dispatch('renderTable')->to(UserTable::class);
-                $this->resetForm();
-            } catch (\Throwable $th) {
-                DB::rollBack();
-                $this->dispatch('sweet-alert', icon: 'danger', title: 'Data Pengguna Gagal Ditambah');
+                    User::create([
+                        'nip'       => $this->nip,
+                        'name'      => $this->name,
+                        'password'  => bcrypt($this->password),
+                        'email'     => $this->email,
+                        'is_aktif'  => $this->isAktif,
+                        'akses'     => $this->akses
+                    ]);
+
+                    DB::commit();
+
+                    $this->dispatch('sweet-alert', icon: 'success', title: 'Data Pengguna Berhasil Ditambah');
+                    $this->dispatch('renderTable')->to(UserTable::class);
+                    $this->resetForm();
+
+                } catch (\Throwable $th) {
+                    throw $th;
+                }
             }
         }
     }

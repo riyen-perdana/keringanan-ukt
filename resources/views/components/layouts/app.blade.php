@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 
         <!-- Scripts -->
         @livewireStyles
@@ -35,5 +36,6 @@
 
         <x-sweet-alert />
         @livewireScripts
+        @yield('script')
     </body>
 </html>

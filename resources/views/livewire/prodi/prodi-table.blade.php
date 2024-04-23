@@ -3,17 +3,18 @@
         <div class="w-5/12 ml-4">
             <x-text-input wire:model.live="search" id="search"
                 class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                type="text" placeholder="Cari Data NIP/NIPPPK/NIK, Nama, Email" />
+                type="text" placeholder="Cari Data Program Studi, Singkatan" />
         </div>
         <div class="flex flex-row items-center justify-between mr-4 text-sm gap-x-2">
             <div>Page :</div>
             <div>
-                <select wire:model.live.debounce.300ms="pages" class="w-full py-2 pl-3 mx-auto text-sm leading-tight text-gray-700 border border-gray-300 rounded shadow appearance-none pr-7 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:shadow-outline">
+                <select wire:model.live.debounce.300ms="pages"
+                    class="w-full py-2 pl-3 mx-auto text-sm leading-tight text-gray-700 border border-gray-300 rounded shadow appearance-none pr-7 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:shadow-outline">
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
-                  </select>
+                </select>
             </div>
         </div>
     </section>
@@ -23,17 +24,14 @@
                 <th scope="col" class="px-4 py-3 w-[20px] sm:w-[20px]">
                     No.
                 </th>
-                <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
-                    NIP/NIPPPK/NIK/Nama
+                <th scope="col" class="px-4 py-3 sm:w-[400px] w-[400px]">
+                    Program Studi/Fakultas
                 </th>
-                <th scope="col" class="px-4 py-3 sm:w-[200px] w-[200px]">
-                    Email
+                <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
+                    Singkatan
                 </th>
                 <th scope="col" class="px-4 py-3 sm:w-[200px] w-[200px]">
                     Status
-                </th>
-                <th scope="col" class="px-4 py-3 sm:w-[200px] w-[200px]">
-                    Hak Akses
                 </th>
                 <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
                     Aksi
@@ -49,12 +47,12 @@
                     </th>
                     <th scope="row"
                         class="flex flex-col px-3 py-3 text-[13px] font-normal text-left text-gray-900 whitespace-nowrap">
-                        <div>{{ $item->nip }}</div>
-                        <div class="font-semibold uppercase">{{ $item->name }}</div>
+                        <div class="uppercase">{{ $item->name_prodi }}</div>
+                        <div class="font-semibold uppercase">{{ $item->fakultas->name }}</div>
                     </th>
                     <th scope="row"
-                        class="px-3 py-3 text-[13px] font-normal text-left text-gray-900 whitespace-nowrap">
-                        {{ $item->email }}
+                        class="px-3 py-3 text-[13px] font-normal text-center text-gray-900 whitespace-nowrap">
+                        {{ $item->abbr_prodi }}
                     </th>
                     @if ($item->is_aktif == 'Y')
                         <th scope="row">
@@ -65,22 +63,10 @@
                             <x-button-table class="bg-red-500 hover:bg-red-600">Tidak Aktif</x-button-table>
                         </th>
                     @endif
-                    @if ($item->akses == 'adm')
-                        <th scope="row">
-                            <x-button-table class="bg-pink-500 hover:bg-pink-600">Administrator</x-button-table>
-                        </th>
-                    @elseif($item->akses == 'keu')
-                        <th scope="row">
-                            <x-button-table class="bg-violet-500 hover:bg-violet-600">Keuangan</x-button-table>
-                        </th>
-                    @else
-                        <th scope="row">
-                            <x-button-table class="bg-yellow-500 hover:bg-yellow-600">Operator</x-button-table>
-                        </th>
-                    @endif
                     <th scope="row">
                         <div class="flex flex-row justify-center gap-x-1">
-                            <x-button-table wire:click="$dispatch('getUser',{data: {{ $item }}} )"  class="flex flex-row bg-slate-500 hover:bg-slate-600">
+                            <x-button-table wire:click="$dispatch('getProdi',{data: {{ $item }}} )"
+                                class="flex flex-row bg-slate-500 hover:bg-slate-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5 me-2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -88,7 +74,10 @@
                                 </svg>
                                 {{ __('Edit') }}
                             </x-button-table>
-                            <x-button-table wire:click="$dispatch('sweet-alert-confirm',{title: 'Hapus NIP {{ $item->nip }} <br> Nama : {{ $item->name }}'})" class="flex flex-row bg-rose-500 hover:bg-rose-600">
+                            <x-button-table
+                                {{-- wire:click="$dispatch('sweet-alert-confirm',{id:'{{ $item->id }}',tahun:'{{ $item->tahun }}'})" --}}
+                                wire:click="$dispatch('sweet-alert-confirm',{id:'{{ $item->id }}',title:'Hapus Program Studi {{ $item->name_prodi }}'})"
+                                class="flex flex-row bg-rose-500 hover:bg-rose-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5 me-2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -101,7 +90,8 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="py-5 mx-auto text-black">Maaf..Data Yang Anda Cari Tidak Kami Ditemukan</td>
+                    <td colspan="6" class="py-5 mx-auto text-black">Maaf..Data Yang Anda Cari Tidak Kami Ditemukan
+                    </td>
                 </tr>
             @endforelse
         </tbody>

@@ -1,6 +1,10 @@
 <?php
 
+use App\Livewire\Beasiswa\BeasiswaIndex;
+use App\Livewire\Fakultas\FakultasIndex;
+use App\Livewire\Jadwal\JadwalIndex;
 use App\Livewire\PenggunaIndex;
+use App\Livewire\Prodi\ProdiIndex;
 use App\Livewire\User\UserIndex;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -30,4 +34,20 @@ Route::get('/pengguna', UserIndex::class)
     ->middleware(['auth'])
     ->name('user.index');
 
-require __DIR__.'/auth.php';
+Route::get('/jadwal', JadwalIndex::class)
+    ->middleware(['auth'])
+    ->name('jadwal.index');
+
+Route::get('/fakultas', FakultasIndex::class)
+    ->middleware(['auth'])
+    ->name('fakultas.index');
+
+Route::get('/prodi', ProdiIndex::class)
+    ->middleware(['auth'])
+    ->name('prodi.index');
+
+Route::get('/beasiswa', BeasiswaIndex::class)
+    ->middleware(['auth'])
+    ->name('beasiswa.index');
+
+require __DIR__ . '/auth.php';

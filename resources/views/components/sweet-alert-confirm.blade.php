@@ -2,11 +2,9 @@
     x-data="{open:false}"
     x-show="open"
     @sweet-alert-confirm.window="
-        const nip = event.detail.nip;
-        const nm = event.detail.nama;
         const id = event.detail.id
         Swal.fire({
-            title: 'NIP '+nip+',<br>Nama '+nm+' Akan Dihapus',
+            title: event.detail.title,
             text: 'Apakah Anda Yakin ?',
             icon: 'warning',
             showCancelButton: true,
