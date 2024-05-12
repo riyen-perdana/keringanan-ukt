@@ -3,6 +3,8 @@
 use App\Livewire\Beasiswa\BeasiswaIndex;
 use App\Livewire\Fakultas\FakultasIndex;
 use App\Livewire\Jadwal\JadwalIndex;
+use App\Livewire\Pendaftar\PendaftarIndex;
+use App\Livewire\Pengajuan\PengajuanIndex;
 use App\Livewire\PenggunaIndex;
 use App\Livewire\Prodi\ProdiIndex;
 use App\Livewire\User\UserIndex;
@@ -23,8 +25,12 @@ use Livewire\Volt\Volt;
 Route::view('/', 'welcome')->name('welcome');
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth:web,mahasiswa','verified'])
     ->name('dashboard');
+
+// Route::view('mahasiswa', 'mahasiswa')
+//     ->middleware(['auth:mahasiswa', 'verified'])
+//     ->name('mahasiswa');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
@@ -49,5 +55,13 @@ Route::get('/prodi', ProdiIndex::class)
 Route::get('/beasiswa', BeasiswaIndex::class)
     ->middleware(['auth'])
     ->name('beasiswa.index');
+
+Route::get('/pendaftaran', PengajuanIndex::class)
+    ->middleware(['auth:mahasiswa','isdaftar','checkisdaftar'])
+    ->name('pengajuan.index');
+
+Route::get('/pendaftar', PendaftarIndex::class)
+    ->middleware(['auth'])
+    ->name('pendaftar.index');
 
 require __DIR__ . '/auth.php';

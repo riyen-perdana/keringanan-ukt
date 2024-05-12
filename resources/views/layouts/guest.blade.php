@@ -8,7 +8,7 @@
         <title>Sistem Informasi Penyesuaian UKT - Universitas Islam Negeri Sultan Syarif Kasim Riau</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
+        {{-- <link rel="preconnect" href="https://fonts.bunny.net"> --}}
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
         <!-- Scripts -->

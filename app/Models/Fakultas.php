@@ -34,4 +34,9 @@ class Fakultas extends Model
         return $this->hasMany(Prodi::class,'fakultas_id');
     }
 
+    public function user() : HasMany
+    {
+        return $this->hasMany(User::class,'fakultas_id');
+    }
+
 }

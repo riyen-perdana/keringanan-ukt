@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -31,7 +32,7 @@
                     <a href="#" class="text-sm font-semibold text-indigo-950 hover:text-green-700">Tanggal Penting</a>
                 </li>
             </ul>
-            <a href="#" class="py-2 text-sm font-semibold text-white bg-indigo-950 px-7 rounded-xl hover:bg-green-700">Daftar</a>
+            <a href="{{route('login-mahasiswa')}}" wire:navigate class="py-2 text-sm font-semibold text-white bg-indigo-950 px-7 rounded-xl hover:bg-green-700">Daftar</a>
             <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer lg:hidden"></ion-icon>
         </div>
     </nav>

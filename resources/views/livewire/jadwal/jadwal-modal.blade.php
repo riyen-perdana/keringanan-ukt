@@ -28,7 +28,7 @@
                                 field: $refs.datepicker_1,
                                 format:'YYYY-MM-DD',
                                 onSelect : function() {
-                                    $wire.set('daftar_buka',this.getMoment().format('YYYY-MM-DD'),false);
+                                    $wire.set('daftar_buka',moment(this.getDate()).format('YYYY-MM-DD'),false);
                                 }
                             });
                         "
@@ -49,7 +49,7 @@
                                 field: $refs.datepicker_2,
                                 format:'YYYY-MM-DD',
                                 onSelect : function() {
-                                    $wire.set('daftar_tutup',this.getMoment().format('YYYY-MM-DD'),false);
+                                    $wire.set('daftar_tutup',moment(this.getDate()).format('YYYY-MM-DD'),false);
                                 }
                             });
                         "
@@ -94,7 +94,3 @@
         </form>
     </x-modal>
 </div>
-@section('script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-@endsection

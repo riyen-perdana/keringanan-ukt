@@ -46,7 +46,7 @@
                         {{ ($data ->currentpage()-1) * $data ->perpage() + $loop->index + 1 }}.
                     </th>
                     <th scope="row"
-                        class="flex flex-col px-3 py-3 text-[13px] font-normal text-left text-gray-900 whitespace-nowrap">
+                        class="flex flex-col px-3 py-3 text-[13px] font-normal text-left text-gray-900 whitespace-nowrap uppercase">
                         <div>{{ $item->name }}</div>
                     </th>
                     <th scope="row"

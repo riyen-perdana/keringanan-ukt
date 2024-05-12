@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Models\Fakultas;
 use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -12,6 +13,8 @@ use Illuminate\Validation\Rule;
 
 class UserModal extends Component
 {
+
+    public $fakultas;
 
     public ?User $user;
 
@@ -44,6 +47,8 @@ class UserModal extends Component
     // #[Validate('required', message: 'Kolom Hak Akses Wajib Dipilih')]
     public $akses = '';
 
+    public $fakultas_id = '';
+
     public function __construct()
     {
         $this->user = new User();
@@ -51,6 +56,7 @@ class UserModal extends Component
 
     public function mount(User $user)
     {
+        $this->fakultas = Fakultas::all();
         $this->user = $user;
     }
 
@@ -67,35 +73,38 @@ class UserModal extends Component
             $validated = Validator::make(
                 //Data to Validate
                 [
-                    'nip'       => $this->nip,
-                    'name'      => $this->name,
-                    'email'     => $this->email,
-                    'password'  => $this->password,
+                    'nip'           => $this->nip,
+                    'name'          => $this->name,
+                    'email'         => $this->email,
+                    'password'      => $this->password,
                     'password_confirmation' => $this->password_confirmation,
-                    'is_aktif'  => $this->isAktif,
-                    'akses'     => $this->akses
+                    'is_aktif'      => $this->isAktif,
+                    'akses'         => $this->akses,
+                    'fakultas_id'   => $this->fakultas_id
                 ],
                 [
-                    'nip'       => 'required|numeric|unique:users,nip,' . $this->user->id,
-                    'name'      => 'required',
-                    'password'  => 'required|min:8|confirmed',
-                    'email'     => 'required|email|unique:users,email,' . $this->user->id,
-                    'is_aktif'  => 'required',
-                    'akses'     => 'required'
+                    'nip'           => 'required|numeric|unique:users,nip,' . $this->user->id,
+                    'name'          => 'required',
+                    'password'      => 'required|min:8|confirmed',
+                    'email'         => 'required|email|unique:users,email,' . $this->user->id,
+                    'is_aktif'      => 'required',
+                    'akses'         => 'required',
+                    'fakultas_id'   => 'required_if:akses,op'
                 ],
                 [
-                    'nip.required'          => 'Kolom NIP PNS/PPPK/NON ASN Wajib Diisi',
-                    'nip.numeric'           => 'Kolom NIP PNS/PPPK/NON ASN Harus Angka',
-                    'nip.unique'            => 'Kolom NIP PNS/PPPK/NON ASN Sudah Ada',
-                    'name.required'         => 'Kolom Nama Pengguna Wajib Diisi',
-                    'password.required'     => 'Kolom Kata Kunci Wajib Diisi',
-                    'password.confirmed'    => 'Kolom Kata Kunci dan Ulangi Kata Kunci Tidak Sama',
-                    'password.min'          => 'Kata Kunci Minimal 8 Karakter',
-                    'email.required'        => 'Kolom Email Wajib Diisi',
-                    'email.email'           => 'Kolom Email Harus Menggunakan Format Email',
-                    'email.unique'          => 'Kolom Email Sudah Ada, Isikan Yang Lain',
-                    'is_aktif,required'     => 'Kolom Status Aktif Wajib Dipilih',
-                    'akses.required'        => 'Kolom Hak Akses Wajib Dipilih'
+                    'nip.required'              => 'Kolom NIP PNS/PPPK/NON ASN Wajib Diisi',
+                    'nip.numeric'               => 'Kolom NIP PNS/PPPK/NON ASN Harus Angka',
+                    'nip.unique'                => 'Kolom NIP PNS/PPPK/NON ASN Sudah Ada',
+                    'name.required'             => 'Kolom Nama Pengguna Wajib Diisi',
+                    'password.required'         => 'Kolom Kata Kunci Wajib Diisi',
+                    'password.confirmed'        => 'Kolom Kata Kunci dan Ulangi Kata Kunci Tidak Sama',
+                    'password.min'              => 'Kata Kunci Minimal 8 Karakter',
+                    'email.required'            => 'Kolom Email Wajib Diisi',
+                    'email.email'               => 'Kolom Email Harus Menggunakan Format Email',
+                    'email.unique'              => 'Kolom Email Sudah Ada, Isikan Yang Lain',
+                    'is_aktif,required'         => 'Kolom Status Aktif Wajib Dipilih',
+                    'akses.required'            => 'Kolom Hak Akses Wajib Dipilih',
+                    'fakultas_id.required_if'   => 'Kolom Fakultas Wajib Dipilih'
                 ]
             )->validate();
 
@@ -106,12 +115,13 @@ class UserModal extends Component
 
                     $pengguna = User::findOrFail($this->user->id);
                     $pengguna->update([
-                        'nip'       => $this->nip,
-                        'name'      => $this->name,
-                        'password'  => bcrypt($this->password),
-                        'email'     => $this->email,
-                        'is_aktif'  => $this->isAktif,
-                        'akses'     => $this->akses
+                        'nip'           => $this->nip,
+                        'name'          => $this->name,
+                        'password'      => bcrypt($this->password),
+                        'email'         => $this->email,
+                        'is_aktif'      => $this->isAktif,
+                        'akses'         => $this->akses,
+                        'fakultas_id'   => $this->fakultas_id
                     ]);
 
                     DB::commit();
@@ -136,7 +146,8 @@ class UserModal extends Component
                     'password'  => $this->password,
                     'password_confirmation' => $this->password_confirmation,
                     'is_aktif'  => $this->isAktif,
-                    'akses'     => $this->akses
+                    'akses'     => $this->akses,
+                    'fakultas_id'   => $this->fakultas_id
                 ],
                 [
                     'nip'       => 'required|numeric|unique:users,nip',
@@ -144,7 +155,8 @@ class UserModal extends Component
                     'password'  => 'required|min:8|confirmed',
                     'email'     => 'required|email|unique:users,email',
                     'is_aktif'  => 'required',
-                    'akses'     => 'required'
+                    'akses'     => 'required',
+                    'fakultas_id'   => 'required_if:akses,op'
                 ],
                 [
                     'nip.required'          => 'Kolom NIP PNS/PPPK/NON ASN Wajib Diisi',
@@ -157,7 +169,8 @@ class UserModal extends Component
                     'email.email'           => 'Kolom Email Harus Menggunakan Format Email',
                     'email.unique'          => 'Kolom Email Sudah Ada, Isikan Yang Lain',
                     'is_aktif,required'     => 'Kolom Status Aktif Wajib Dipilih',
-                    'akses.required'        => 'Kolom Hak Akses Wajib Dipilih'
+                    'akses.required'        => 'Kolom Hak Akses Wajib Dipilih',
+                    'fakultas_id.required_if'   => 'Kolom Fakultas Wajib Dipilih'
                 ]
             )->validate();
 
@@ -167,12 +180,13 @@ class UserModal extends Component
                 try {
 
                     User::create([
-                        'nip'       => $this->nip,
-                        'name'      => $this->name,
-                        'password'  => bcrypt($this->password),
-                        'email'     => $this->email,
-                        'is_aktif'  => $this->isAktif,
-                        'akses'     => $this->akses
+                        'nip'           => $this->nip,
+                        'name'          => $this->name,
+                        'password'      => bcrypt($this->password),
+                        'email'         => $this->email,
+                        'is_aktif'      => $this->isAktif,
+                        'akses'         => $this->akses,
+                        'fakultas_id'   => $this->fakultas_id
                     ]);
 
                     DB::commit();
@@ -191,7 +205,7 @@ class UserModal extends Component
     public function resetForm()
     {
         $this->dispatch('close-modal', 'pengguna-modal');
-        $this->reset();
+        $this->reset('nip','name','password','email','isAktif','akses','fakultas_id');
         $this->resetErrorBag();
         $this->resetValidation();
     }
@@ -205,6 +219,7 @@ class UserModal extends Component
         $this->email        = $user->email;
         $this->isAktif      = $user->is_aktif;
         $this->akses        = $user->akses;
+        $this->fakultas_id  = $user->fakultas_id;
         $this->headModal    = 'Edit';
         $this->tombol       = 'Ubah';
         $this->dispatch('open-modal', 'pengguna-modal');

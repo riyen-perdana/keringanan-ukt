@@ -66,6 +66,16 @@
                   <x-input-error :messages="$errors->get('akses')" class="mt-2" />
               </div>
             </div>
+            <div class="mb-2">
+                <x-input-label for="fakultas" :value="__('Fakultas')" class="mb-2 font-semibold" />
+                  <select wire:model="fakultas_id" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border border-gray-300 rounded shadow appearance-none focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:shadow-outline">
+                    <option value="">{{ __('Pilih Fakultas') }}</option>
+                    @foreach ($fakultas as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                  </select>
+                  <x-input-error :messages="$errors->get('fakultas_id')" class="mt-2" />
+            </div>
             <div class="flex items-center justify-end mt-10 gap-x-2">
                 <x-primary-button wire:loading.attr="disabled">
                     @if ($tombol === 'Ubah')

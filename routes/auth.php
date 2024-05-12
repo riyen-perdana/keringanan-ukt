@@ -11,6 +11,9 @@ Route::middleware('guest')->group(function () {
     Volt::route('login-petugas', 'pages.auth.login')
         ->name('login-petugas');
 
+    Volt::route('login-mahasiswa','pages.auth.login-mahasiswa')
+        ->name('login-mahasiswa');
+
     Volt::route('forgot-password', 'pages.auth.forgot-password')
         ->name('password.request');
 

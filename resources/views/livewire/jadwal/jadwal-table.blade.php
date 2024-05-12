@@ -24,14 +24,17 @@
                 <th scope="col" class="px-4 py-3 w-[20px] sm:w-[20px]">
                     No.
                 </th>
-                <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
+                <th scope="col" class="px-4 py-3 sm:w-[200px] w-[200px]">
                     Tahun
                 </th>
-                <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
+                <th scope="col" class="px-4 py-3 sm:w-[250px] w-[250px]">
                     Tanggal Awal Pendaftaran
                 </th>
-                <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
+                <th scope="col" class="px-4 py-3 sm:w-[250px] w-[250px]">
                     Tanggal Akhir Pendaftaran
+                </th>
+                <th scope="col" class="px-4 py-3 sm:w-[100px] w-[100px]">
+                    Status
                 </th>
                 <th scope="col" class="px-4 py-3 sm:w-[300px] w-[300px]">
                     Aksi
@@ -57,6 +60,15 @@
                         class="px-3 py-3 text-[13px] font-normal text-center text-gray-900 whitespace-nowrap">
                         {{ tanggal_indonesia($item->daftar_tutup,false) }}
                     </th>
+                    @if ($item->is_aktif == 'Y')
+                        <th scope="row">
+                            <x-button-table class="bg-green-500 hover:bg-green-600">Aktif</x-button-table>
+                        </th>
+                    @else
+                        <th scope="row">
+                            <x-button-table class="bg-red-500 hover:bg-red-600">Tidak Aktif</x-button-table>
+                        </th>
+                    @endif
                     <th scope="row">
                         <div class="flex flex-row justify-center gap-x-1">
                             <x-button-table wire:click="$dispatch('getJadwal',{data: {{ $item }}} )"

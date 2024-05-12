@@ -71,13 +71,13 @@ class JadwalModal extends Component
                     ]);
 
                     DB::commit();
-                    $this->dispatch('sweet-alert', icon: 'success', title: 'Data Jadwal Berhasil Ditambah');
+                    $this->dispatch('sweet-alert', icon: 'success', title: 'Data Jadwal Berhasil Diubah');
                     $this->dispatch('renderTable')->to(JadwalTable::class);
                     $this->resetForm();
 
                 } catch (\Throwable $th) {
                     DB::rollBack();
-                    $this->dispatch('sweet-alert', icon: 'danger', title: 'Data Jadwal Gagal Ditambah');
+                    $this->dispatch('sweet-alert', icon: 'danger', title: 'Data Jadwal Gagal Diubah');
                     $this->resetForm();
                 }
             }

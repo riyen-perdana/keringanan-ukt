@@ -51,6 +51,9 @@
                         class="flex flex-col px-3 py-3 text-[13px] font-normal text-left text-gray-900 whitespace-nowrap">
                         <div>{{ $item->nip }}</div>
                         <div class="font-semibold uppercase">{{ $item->name }}</div>
+                        @if ($item->fakultas)
+                            <div class="font-semibold uppercase">{{ $item->fakultas->name }}</div>
+                        @endif
                     </th>
                     <th scope="row"
                         class="px-3 py-3 text-[13px] font-normal text-left text-gray-900 whitespace-nowrap">
@@ -88,7 +91,7 @@
                                 </svg>
                                 {{ __('Edit') }}
                             </x-button-table>
-                            <x-button-table wire:click="$dispatch('sweet-alert-confirm',{title: 'Hapus NIP {{ $item->nip }} <br> Nama : {{ $item->name }}'})" class="flex flex-row bg-rose-500 hover:bg-rose-600">
+                            <x-button-table wire:click="$dispatch('sweet-alert-confirm',{id:'{{ $item->id }}',title: 'Hapus NIP {{ $item->nip }} <br> Nama : {{ $item->name }}'})" class="flex flex-row bg-rose-500 hover:bg-rose-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5 me-2">
                                     <path stroke-linecap="round" stroke-linejoin="round"

@@ -26,16 +26,13 @@ class UserTable extends Component
     public function render()
     {
         return view('livewire.user.user-table', [
-            'data' => User::where('name','like','%'.$this->search.'%')
+            'data' => User::with('fakultas')->where('name','like','%'.$this->search.'%')
                       ->orWhere('nip','like','%'.$this->search.'%')
                       ->orWhere('email','like','%'.$this->search.'%')
                       ->paginate($this->pages)
         ]);
     }
 
-    public function updatedSearch(){
-        $this->resetPage();
-    }
 
     public function delete($id)
     {

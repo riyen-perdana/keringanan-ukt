@@ -15,7 +15,7 @@
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-['Poppins']" antialiased>
         <div class="min-h-screen bg-gray-100">
             <livewire:layout.navigation />
 
@@ -36,6 +36,7 @@
 
         <x-sweet-alert />
         @livewireScripts
-        @yield('script')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     </body>
 </html>
