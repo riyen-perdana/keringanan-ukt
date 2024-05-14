@@ -28,32 +28,28 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth:web,mahasiswa','verified'])
     ->name('dashboard');
 
-// Route::view('mahasiswa', 'mahasiswa')
-//     ->middleware(['auth:mahasiswa', 'verified'])
-//     ->name('mahasiswa');
-
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
 Route::get('/pengguna', UserIndex::class)
-    ->middleware(['auth'])
+    ->middleware(['auth','ceklevel:adm'])
     ->name('user.index');
 
 Route::get('/jadwal', JadwalIndex::class)
-    ->middleware(['auth'])
+    ->middleware(['auth','ceklevel:adm'])
     ->name('jadwal.index');
 
 Route::get('/fakultas', FakultasIndex::class)
-    ->middleware(['auth'])
+    ->middleware(['auth','ceklevel:adm'])
     ->name('fakultas.index');
 
 Route::get('/prodi', ProdiIndex::class)
-    ->middleware(['auth'])
+    ->middleware(['auth','ceklevel:adm'])
     ->name('prodi.index');
 
 Route::get('/beasiswa', BeasiswaIndex::class)
-    ->middleware(['auth'])
+    ->middleware(['auth','ceklevel:adm'])
     ->name('beasiswa.index');
 
 Route::get('/pendaftaran', PengajuanIndex::class)

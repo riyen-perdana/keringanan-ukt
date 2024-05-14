@@ -111,19 +111,19 @@ class PengajuanIndex extends Component
         $ft_dpnrumah    = md5($this->ft_dpnrumah . microtime()).'.'.$this->ft_dpnrumah->extension();
         $sk_tdkbs       = md5($this->sk_tdkbs . microtime()).'.'.$this->sk_tdkbs->extension();
 
-        $this->surper_mhs->storeAs('files', $surper_mhs);
-        $this->kk_mhs->storeAs('files', $kk_mhs);
-        $this->ktp_ortu_mhs->storeAs('files', $ktp_ortu_mhs);
-        $this->ktp_ortu_mhs->storeAs('files', $ktp_ortu_mhs);
-        $this->rknlstrk_mhs->storeAs('files', $rknlstrk_mhs);
-        $this->gjortu_mhs->storeAs('files', $gjortu_mhs);
-        $this->surkk_mhs->storeAs('files', $surkk_mhs);
-        $this->ft_ruangtamu->storeAs('files', $ft_ruangtamu);
-        $this->ft_kamartdr->storeAs('files', $ft_kamartdr);
-        $this->ft_ruangklrg->storeAs('files', $ft_ruangklrg);
-        $this->ft_dapur->storeAs('files', $ft_dapur);
-        $this->ft_dpnrumah->storeAs('files', $ft_dpnrumah);
-        $this->sk_tdkbs->storeAs('files', $sk_tdkbs);
+        $this->surper_mhs->storeAs('public/files', $surper_mhs);
+        $this->kk_mhs->storeAs('public/files', $kk_mhs);
+        $this->ktp_ortu_mhs->storeAs('public/files', $ktp_ortu_mhs);
+        $this->ktp_ortu_mhs->storeAs('public/files', $ktp_ortu_mhs);
+        $this->rknlstrk_mhs->storeAs('public/files', $rknlstrk_mhs);
+        $this->gjortu_mhs->storeAs('public/files', $gjortu_mhs);
+        $this->surkk_mhs->storeAs('public/files', $surkk_mhs);
+        $this->ft_ruangtamu->storeAs('public/files', $ft_ruangtamu);
+        $this->ft_kamartdr->storeAs('public/files', $ft_kamartdr);
+        $this->ft_ruangklrg->storeAs('public/files', $ft_ruangklrg);
+        $this->ft_dapur->storeAs('public/files', $ft_dapur);
+        $this->ft_dpnrumah->storeAs('public/files', $ft_dpnrumah);
+        $this->sk_tdkbs->storeAs('public/files', $sk_tdkbs);
 
         DB::beginTransaction();
         try {

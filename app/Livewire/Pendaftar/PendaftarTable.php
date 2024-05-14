@@ -31,7 +31,7 @@ class PendaftarTable extends Component
                     })
                     ->paginate($this->pages);
         } else {
-            $data = Mahasiswa::with('prodi','prodi.fakultas','pengajuan','pengajuan.jadwal')
+            $data = Mahasiswa::with('prodi','prodi.fakultas','pengajuan','pengajuan.jadwal','pengajuan.verifikasi.user')
                     ->whereHas('prodi.fakultas', function ($query) {
                         $query->where('fakultas_id','=',Auth::user()->fakultas_id);
                     })

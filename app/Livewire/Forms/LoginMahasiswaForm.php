@@ -46,7 +46,7 @@ class LoginMahasiswaForm extends Form
                 } else {
                     //Cek UKT
                     $ukt = intval($response['data']['ukt']['kelompok_ukt_final']);
-                    if ($ukt < 4) {
+                    if ($ukt <= 4) {
                         throw ValidationException::withMessages([
                             session()->flash('status', 'Kriteria Pendaftaran Tidak Sesuai, Minimal UKT 4')
                         ]);

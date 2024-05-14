@@ -1,9 +1,9 @@
 <x-layouts.errors>
     <div class="flex">
-        <div class="justify-center mx-auto text-center">
-            <img src="{{asset('assets/images/9.png')}}" width="500" class="mx-auto mb-5" />
+        <div class="mx-auto text-center">
+            <img src="{{asset('assets/images/4.png')}}" width="500" class="mx-auto" />
 
-            <div class="max-w-4xl mx-auto text-normal">Maaf, Koneksi Ke Server Kami Sedang Bermasalah</div>
+            <div class="max-w-4xl mx-auto text-normal">Maaf, Anda Tidak Berhak Mengakses Halaman Ini</div>
 
             <div class="flex mt-3">
                 <div class="grid mx-auto">

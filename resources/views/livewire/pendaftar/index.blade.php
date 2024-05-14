@@ -15,6 +15,9 @@
                     <section class="pendaftar-modal">
                         @livewire('pendaftar.pendaftar-modal')
                     </section>
+                    <section class="pendaftar-view-bukti">
+                        @livewire('pendaftar.pendaftar-modal-view')
+                    </section>
                 </div>
             </div>
         </div>
