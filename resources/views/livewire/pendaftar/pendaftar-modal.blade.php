@@ -100,6 +100,15 @@
                     class="flex flex-row bg-cyan-500 hover:bg-cyan-600">
                     {{ __('Surat Keterangan Tidak Sedang Menerima Beasiswa') }}
                 </x-button-table>
+
+                <x-button-table
+                    x-data=""
+                    x-on:click.prevent="$dispatch('showModal',{view:'{{$spkd}}'})"
+                    wire:loading.attr="disabled"
+                    class="flex flex-row bg-cyan-500 hover:bg-cyan-600">
+                    {{ __('Surat Keterangan Kebenaran Data') }}
+                </x-button-table>
+
             </div>
         </section>
         <section class="form_data">

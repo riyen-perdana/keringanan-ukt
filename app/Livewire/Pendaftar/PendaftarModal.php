@@ -26,6 +26,7 @@ class PendaftarModal extends Component
     public $ft_dapur;
     public $ft_dpnrumah;
     public $sk_tdkbs;
+    public $spkd;
 
     #[Validate('required', message:'Kolom Persetujuan Pengajuan Wajib Diisi')]
     public $is_setuju = '';
@@ -75,6 +76,7 @@ class PendaftarModal extends Component
         $this->ft_dapur = $data['pengajuan'][0]['ft_dapur'];
         $this->ft_dpnrumah = $data['pengajuan'][0]['ft_dapur'];
         $this->sk_tdkbs = $data['pengajuan'][0]['sk_tdkbs'];
+        $this->spkd = $data['pengajuan'][0]['spkd'];
 
         $this->mahasiswa = $data['nama'];
         $this->dispatch('open-modal', 'pendaftar-modal');

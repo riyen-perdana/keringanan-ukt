@@ -32,6 +32,7 @@ class Pengajuan extends Model
         'ft_dapur',
         'ft_dpnrumah',
         'sk_tdkbs',
+        'spkd',
         'status'
     ];
 
@@ -130,6 +131,13 @@ class Pengajuan extends Model
     }
 
     protected function skTdkbs() : Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => url('/storage/files/' .$value)
+        );
+    }
+
+    protected function spkd() : Attribute
     {
         return Attribute::make(
             get: fn (string $value) => url('/storage/files/' .$value)

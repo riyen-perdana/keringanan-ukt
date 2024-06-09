@@ -85,6 +85,12 @@ class PengajuanIndex extends Component
     public $sk_tdkbs = null;
 
     #[Validate('required',message:'Bagian Ini Harus Diisi')]
+    #[Validate('mimes:pdf',message:'Format Data Yang Anda Upload Tidak Sesuai')]
+    #[Validate('max:500',message:'Ukuran Berkas Harus Kecil atau Sama Dengan 500Kb')]
+    public $spkd = null;
+
+
+    #[Validate('required',message:'Bagian Ini Harus Diisi')]
     public $remember = false;
 
     public $view;
@@ -110,6 +116,7 @@ class PengajuanIndex extends Component
         $ft_dapur       = md5($this->ft_dapur . microtime()).'.'.$this->ft_dapur->extension();
         $ft_dpnrumah    = md5($this->ft_dpnrumah . microtime()).'.'.$this->ft_dpnrumah->extension();
         $sk_tdkbs       = md5($this->sk_tdkbs . microtime()).'.'.$this->sk_tdkbs->extension();
+        $spkd           = md5($this->spkd. microtime()).'.'.$this->spkd->extension();
 
         $this->surper_mhs->storeAs('public/files', $surper_mhs);
         $this->kk_mhs->storeAs('public/files', $kk_mhs);
@@ -124,6 +131,7 @@ class PengajuanIndex extends Component
         $this->ft_dapur->storeAs('public/files', $ft_dapur);
         $this->ft_dpnrumah->storeAs('public/files', $ft_dpnrumah);
         $this->sk_tdkbs->storeAs('public/files', $sk_tdkbs);
+        $this->spkd->storeAs('public/files', $spkd);
 
         DB::beginTransaction();
         try {
@@ -149,6 +157,7 @@ class PengajuanIndex extends Component
                 'ft_dapur' => $ft_dapur,
                 'ft_dpnrumah' => $ft_dpnrumah,
                 'sk_tdkbs' => $sk_tdkbs,
+                'spkd' => $spkd
             ]);
 
             DB::commit();

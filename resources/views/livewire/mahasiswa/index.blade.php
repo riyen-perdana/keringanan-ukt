@@ -100,27 +100,29 @@
                                         </tr>
                                         <tr>
                                             <td class="text-left">Status Pengajuan</td>
-                                            @forelse ($item->pengajuan as $aj)
+                                            {{-- @forelse ($item->pengajuan as $aj)
                                                 @php
                                                     $ajk = true;
                                                 @endphp
                                                 <td class="font-semibold text-right text-green-500">Sudah Mengajukan</td>
                                             @empty
                                                 <td class="font-semibold text-right text-red-500">Belum Mengajukan</td>
-                                            @endforelse
+                                            @endforelse --}}
+                                            <td class="font-semibold text-right text-green-500">{{ Auth::guard('mahasiswa')->user()->id === $item->pengajuan[0]->mahasiswa_id ? 'Sudah Mengajukan' : 'Belum Mengajukan' }}</td>
                                         </tr>
                                         <tr>
                                             <td class="text-left">Tanggal Pengajuan</td>
-                                            @forelse ($item->pengajuan as $aj)
+                                            {{-- @forelse ($item->pengajuan as $aj)
                                                 <td class="font-semibold text-right text-green-500">{{ tanggal_indonesia($aj->created_at) }}</td>
                                             @empty
                                                 <td class="font-semibold text-right text-red-500">{{ '-' }}</td>
-                                            @endforelse
+                                            @endforelse --}}
+                                            <td class="font-semibold text-right text-green-500">{{ Auth::guard('mahasiswa')->user()->id === $item->pengajuan[0]->mahasiswa_id ? tanggal_indonesia($item->pengajuan[0]->created_at) : '-' }}</td>
                                         </tr>
                                         <tr>
                                             <td class="text-left"></td>
                                             <td class="pt-2 font-semibold text-right">
-                                                @if (($item->daftar_buka <= $date && $item->daftar_tutup >= $date) && $ajk !==true)
+                                                @if (($item->daftar_buka <= $date && $item->daftar_tutup >= $date) && (Auth::guard('mahasiswa')->user()->id != $item->pengajuan[0]->mahasiswa_id))
                                                     <x-link-button
                                                         class="bg-sky-500 ms-1 hover:bg-sky-400 focus:bg-sky-400 active:bg-sky-400"
                                                         :href="route('pengajuan.index')" wire:navigate>

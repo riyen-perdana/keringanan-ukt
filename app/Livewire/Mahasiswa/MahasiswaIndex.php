@@ -13,7 +13,6 @@ class MahasiswaIndex extends Component
 {
     public function render()
     {
-
         $data = Jadwal::with('pengajuan')->get();
         return view('livewire.mahasiswa.index',[
             'data' => $data,

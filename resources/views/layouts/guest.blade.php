@@ -47,6 +47,6 @@
                 </div>
             </div>
         </div>
-        @livewireScript
+        {{-- @livewireScript --}}
     </body>
 </html>

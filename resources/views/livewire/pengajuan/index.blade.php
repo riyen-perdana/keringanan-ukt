@@ -330,13 +330,37 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="grid grid-cols-1 gap-4 mb-2 md:grid-cols-1 lg:grid-cols-2">
+                                <div>
+                                    <x-input-label for="spkd" :value="__('Surat Pernyataan Kebenaran Data')" class="text-xs font-semibold" />
+                                    <p class="mb-1 text-xs text-black-500">Format PDF dengan Kapasitas Maksimal 500Kb
+                                    </p>
+                                    <x-text-input wire:model="spkd" id="spkd"
+                                        class="w-full px-3 py-2 mb-1 text-xs leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                        type="file" required />
+                                    <x-input-error :messages="$errors->get('spkd')" class="mt-0" />
+                                    @if ($spkd && !$errors->get('spkd'))
+                                        <x-primary-button x-data=""
+                                            x-on:click.prevent="$dispatch('viewData',{view:'{{ $spkd->temporaryUrl() }}'})"
+                                            wire:loading.attr="disabled" wire:ignore.self>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="w-5 h-5 me-2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                            {{ __('Lihat Berkas') }}
+                                        </x-primary-button>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="block mt-4">
                                 <label for="remember" class="inline-flex items-top">
                                     <input wire:model="remember" id="remember" type="checkbox"
                                         class="text-indigo-600 border-gray-300 rounded shadow-sm focus:ring-indigo-500"
                                         name="remember">
                                     <span
-                                        class="text-xs text-gray-600 ms-2">{{ __('Dengan ini saya menyatakan bahwa data yang saya isikan ini adalah benar, apabila dikemudian hari data yang saya isikan ternyata tidak benar, maka saya bersedia digugurkan dari penerima keringanan UKT UIN SUSKA Riau dan bersedia menerima sanksi yang ada.') }}</span>
+                                        class="text-xs text-gray-600 ms-2">{{ __('Dengan ini saya menyatakan bahwa data yang saya isikan ini adalah benar, apabila dikemudian hari data yang saya isikan ternyata tidak benar, maka saya bersedia digugurkan dari penerima keringanan UKT UIN SUSKA Riau dan bersedia menerima sanksi yang ada yaitu dinaikkan UKT nya 1 (satu) tingkat.') }}</span>
                                 </label>
                             </div>
                             <div class="block mt-4 mb-2">
